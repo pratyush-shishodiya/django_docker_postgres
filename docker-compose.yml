@@ -1,0 +1,44 @@
+version: '3.7'
+
+services:
+  app:
+    platform: linux/amd64
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/django_app
+    ports:
+      - 8000:8000
+    depends_on:
+      db:
+        condition: service_healthy  
+  
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "emp_db", "-U", "postgres" ]
+      interval: 5s
+      timeout: 10s
+      retries: 120
+    environment:
+      POSTGRES_DB: "emp_db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "Devops@1"
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    
+
+volumes:
+  db-data:
+    driver: local
+
+
