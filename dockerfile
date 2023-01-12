@@ -1,5 +1,5 @@
 #Python base-image
-FROM --platform=linux/amd64 python:3.10.2-slim-bullseye
+FROM --platform=linux/arm64/v8 python:3.10.2-slim-bullseye
 
 #Directory in container
 #RUN mkdir /django_app
