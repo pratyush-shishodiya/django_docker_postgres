@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'emp_db', 
         'USER': 'postgres',
         'PASSWORD': 'Devops@1',
-        'HOST': 'db', 
+        'HOST': '127.0.0.1', 
         'PORT': '5432',
     }
 }
