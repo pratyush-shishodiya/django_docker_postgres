@@ -1,5 +1,5 @@
 #Python base-image
-FROM --platform=linux/arm64/v8 python:3.10.2-slim-bullseye
+FROM --platform=linux/amd64 python:3.10.2-slim-bullseye
 
 #Directory in container
 #RUN mkdir /django_app
@@ -23,6 +23,6 @@ RUN chmod +x requirements.txt
 RUN pip install -r requirements.txt
 
 #copying source code
-COPY ./ ./
+COPY . .
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
