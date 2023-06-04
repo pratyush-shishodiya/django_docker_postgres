@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('checkout'){
             steps{
-                git credentialsId: "${GITHUB_CRED}", url: 'https://github.com/pratyush-shishodiya/django_docker_postgres.git'
+                git([url: 'https://github.com/pratyush-shishodiya/django_docker_postgres.git', branch: 'master', credentialsId: 'GITHUB_CRED'])
             }
         }
         stage('Build') {
