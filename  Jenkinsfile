@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    environment{
+        GITHUB_CRED = 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
+    }
     stages {
         stage('checkout'){
             steps{
-                git 'https://github.com/pratyush-shishodiya/django_docker_postgres.git'
+                git credentialsId: "${GITHUB_CRED}", url: 'https://github.com/pratyush-shishodiya/django_docker_postgres.git'
             }
         }
         stage('Build') {
@@ -26,5 +29,4 @@ pipeline {
         }
     }
 }
-
 
