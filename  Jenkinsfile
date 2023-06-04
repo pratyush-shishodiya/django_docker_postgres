@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'docker compose running'
+                sh 'docker-compose up -d'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Your test steps here
+                echo 'Testing done'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Your deployment steps here
+                echo 'Deployed'
+            }
+        }
+    }
+}
