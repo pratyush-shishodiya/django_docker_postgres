@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    environment{
+    environment {
         GITHUB_CRED = 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
     }
     stages {
