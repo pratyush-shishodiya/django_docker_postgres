@@ -7,9 +7,6 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/django_app
-      - /usr/bin/docker:/usr/bin/docker
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/bin/docker-compose:/usr/bin/docker-compose
     ports:
       - 8000:8000
     depends_on:
