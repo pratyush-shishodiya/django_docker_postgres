@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'docker compose running'
-                sh 'docker-compose up -d'
+                sh 'docker build .'
             }
         }
         stage('Test') {
