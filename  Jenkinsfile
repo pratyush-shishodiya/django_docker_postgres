@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('checkout'){
+            steps{
+                git 'https://github.com/pratyush-shishodiya/django_docker_postgres.git'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'docker compose running'
@@ -21,3 +26,5 @@ pipeline {
         }
     }
 }
+
+
